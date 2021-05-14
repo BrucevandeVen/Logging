@@ -1,7 +1,7 @@
-# Onderzoek naar Logging en vergelijkbare methoden
+# Onderzoek naar logging in .NET
 
 ## Introductie
-
+Ik heb er al een aantal keer over gehoord via docenten en studenten, maar wist nooit goed wat logging precies in hield. In dit onderzoek ga ik uitzoeken wat logging is en wat voor positieve effecten het kan hebben tijdens het programmeren. Ik wil proberen om ook de beginselen van een goede implementatie uit te leggen. Dit onderzoek is gebasseerd op security principes.
 
 ## Table Of Contents
 - [DOT Framework](#dot-framework)
@@ -18,7 +18,7 @@ DOT (Development Oriented Triangulation) Framework, is een een onderzoeksmethode
 Bron: [DOT Framework](https://ictresearchmethods.nl/The_DOT_Framework)
 
 ## What
-
+Ik wil graag meer weten over wat logging is en wat voor toevoeging het heeft voor mijn applicaties. Het is een zeer bekend begrip en daarom zal ik daarover ook veel moeten kunnen vinden in officiële bronnen zoals Microsoft. 
 
 De hoofdonderzoeksvraag:  
 ****

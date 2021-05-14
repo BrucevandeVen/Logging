@@ -21,11 +21,14 @@ Bron: [DOT Framework](https://ictresearchmethods.nl/The_DOT_Framework)
 Ik wil graag meer weten over wat logging is en wat voor toevoeging het heeft voor mijn applicaties. Het is een zeer bekend begrip en daarom zal ik daarover ook veel moeten kunnen vinden in officiële bronnen zoals Microsoft. 
 
 De hoofdonderzoeksvraag:  
-****
+**Wat is logging?**
 
 ## Why  
 **Deelvragen**  
-
+Om de hoogfdvraag goed te kunnen beantwoorden heb ik een aantal deelvragen over logging bedacht.  
+- Wat is het doel/nut van logging?
+- Hoe is logging te gebruiken?
+- Zijn er andere opties/variaties op logging?  
 
 **Wat gaat dit onderzoek oplossen?**  
 

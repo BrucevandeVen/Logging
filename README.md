@@ -44,4 +44,6 @@ DOT Framework heeft 5 methodes om een onderzoek uit te voeren:
 
 Ik ben van plan de volgende methodes te gebruiken:  
 - Library  
-Om te kijken wat er al over te vinden is en dit implementeren in mijn onderzoek.  
+Om te onderzoeken wat er al over te vinden is en dit implementeren in mijn onderzoek.  
+- Workshop
+Ik ga een prototype API maken die simpele logging gebruikt.

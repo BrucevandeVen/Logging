@@ -28,7 +28,7 @@ De hoofdonderzoeksvraag:
 Om de hoogfdvraag goed te kunnen beantwoorden heb ik een aantal deelvragen over logging bedacht.  
 - Wat is het doel van logging?
 - Hoe is logging te gebruiken?
-- Zijn er andere opties/variaties op logging?  
+- Zijn er andere opties dan logging?  
 
 **Wat gaat dit onderzoek oplossen?**  
 Dit onderzoek gaat er voor zorgen dat ik begrijp wat logging is en dit ook nu of in de toekomst eventueel kan toepassen op mijn projecten.

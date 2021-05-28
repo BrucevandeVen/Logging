@@ -26,7 +26,7 @@ De hoofdonderzoeksvraag:
 ## Why  
 **Deelvragen**  
 Om de hoogfdvraag goed te kunnen beantwoorden heb ik een aantal deelvragen over logging bedacht.  
-- Wat is het doel/nut van logging?
+- Wat is het doel van logging?
 - Hoe is logging te gebruiken?
 - Zijn er andere opties/variaties op logging?  
 

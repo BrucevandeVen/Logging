@@ -1,6 +1,6 @@
 # Wat is het doel van logging?
 
-# Table of Contents
+## Table of Contents
 - Library
 - Logging concreet
 - Waarom logging?

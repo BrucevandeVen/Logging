@@ -43,3 +43,5 @@ DOT Framework heeft 5 methodes om een onderzoek uit te voeren:
 - [Showroom](https://ictresearchmethods.nl/Category:Showroom) (expert feedback)
 
 Ik ben van plan de volgende methodes te gebruiken:  
+- Library  
+Om te kijken wat er al over te vinden is en dit implementeren in mijn onderzoek.  

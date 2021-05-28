@@ -1,1 +1,1 @@
-# What is logging?
+# Zijn er andere opties dan logging?

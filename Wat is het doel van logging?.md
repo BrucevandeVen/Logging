@@ -13,5 +13,6 @@ Verder heb ik ook de officiële [Microsoft documentatie over .NET Logging](https
 Een apart onderzoek dat meer in gaat op de "Why's" van logging, is het artikel op [SolarWinds Loggly](https://www.loggly.com/ultimate-guide/net-logging-basics/). In het artikel wordt beschreven waarom logging handig kan zijn en wat het in feiten is.  
 
 ## Logging concreet  
-  
+Logging kan fungeren als een manier van errorhandling, maar ook debug analysis en performance reviews worden gemakkelijker gemaakt met logging. Het is mogelijk om naar verschillende soorten bestanden te loggen i.p.v. alleen de command line. Je kan loggen naar een database of bijvoorbeeld Windows Server. In dit onderzoek ga ik alleen focussen op de command line in .NET.
+
 ## Waarom logging?

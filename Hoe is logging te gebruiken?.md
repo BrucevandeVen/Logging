@@ -57,10 +57,26 @@ Variabelen en Id's:
 var id = 14;
 _logger.LogWarning(id,"whoops server timed out.. {Servertime}ms", i);
 ```  
+
+De output:  
 ![image](https://user-images.githubusercontent.com/58031089/120365297-8c8de500-c30e-11eb-81d1-4b1381129221.png)  
 
 D.m.v. {..} kunnen variabelen na de komma ingevoerd worden, de logId moet voor de message gegeven worden.  
 ![image](https://user-images.githubusercontent.com/58031089/120365190-6b2cf900-c30e-11eb-8df3-54c9cd9d8e49.png)  
 
+De Debugger en console kunnen beide gebruikt worden om log informatie te laten zien. De default zet alles open en laat het op beide plekken zien, als je het anders wilt zul je logger anders moeten configureren in de Program.cs file. We gaan de configureLogging methode gebruiken om de debugger aan of uit te zetten.  
+Voorbeeld:  
+```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureLogging((context, logging) =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConfiguration(context.Configuration.GetSection("Logging"));
+                    logging.AddConsole(); // Gebruik console voor logging
+                    logging.AddDebug(); // Gebruik Debugger voor logging
+                })
+```  
+Als je geen console of debugger wil gebruiken voor logging kun je deze simpelweg verwijderen of uit commenten.
 
 ## Workshop

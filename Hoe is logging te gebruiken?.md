@@ -13,7 +13,7 @@ De verschillende Log Levels geven aan hoe kritiek de toestand is of geven andere
 
 ## Implementatie
 Om de ILogger interface aan te kunnen moeten we via dependency injection.  
-```
+```csharp
 private readonly ILogger<WeatherForecastController> _logger;
 
 public WeatherForecastController(ILogger<WeatherForecastController> logger)

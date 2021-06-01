@@ -35,8 +35,16 @@ appsettings.json:
   }
 }
 ```  
-De aangegeven Log Levels zijn de minimale logs die weergegeven worden, bijvoorbeeld; vanaf Warning worden Warning, Error en Critical gedisplayed en bij Trace worden alle logs gedisplayed. 
-
-
+De aangegeven Log Levels zijn de minimale logs die weergegeven worden, bijvoorbeeld; vanaf Warning worden Warning, Error en Critical gedisplayed en bij Trace worden alle logs gedisplayed.  
+Om alle Log Levels uit te proberen heb ik LoggingDemoAPI.Controllers.WeatherForecastController veranderd naar Trace.  
+Mijn test logs:  
+```csharp
+_logger.LogInformation("some info");
+_logger.LogDebug("Debug");
+_logger.LogTrace("Tracing....");
+_logger.LogError("APP crashed");
+_logger.LogCritical("something was breached");
+_logger.LogWarning("alert something is probably not right");
+```
 
 ## Workshop

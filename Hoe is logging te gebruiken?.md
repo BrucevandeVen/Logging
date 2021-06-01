@@ -3,7 +3,6 @@
 ## Table Of Contents
 - Library
 - Implementatie
-- Workshop
 
 ## Library
 Ik heb als eerste weer gegrepen naar [Tim Corey's video](https://www.youtube.com/watch?v=_iryZxv8Rxw&ab_channel=IAmTimCorey) over logging in .NET. Tim legt uit hoe je omgaat met de built-in ILogger interface en hier je voordeel uit kan halen. Via de officiële [Microsoft documentatie](https://docs.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line) over .NET heb ik een aantal overzichten zoals [Log Levels](https://docs.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line#log-level) gemakkelijk kunnen vinden.  
@@ -78,5 +77,3 @@ Voorbeeld:
                 })
 ```  
 Als je geen console of debugger wil gebruiken voor logging kun je deze simpelweg verwijderen of uit commenten. Let op dat context.Configuration.GetSection() dezelfde naam krijgt gegeven als in je appsettings.json file (in mijn geval "Logging").
-
-## Workshop

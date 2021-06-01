@@ -11,8 +11,15 @@ Ik heb als eerste weer gegrepen naar [Tim Corey's video](https://www.youtube.com
 De verschillende Log Levels geven aan hoe kritiek de toestand is of geven andere informatie weer.
 ![image](https://user-images.githubusercontent.com/58031089/120306557-42870e00-c2d2-11eb-8c45-487d23c1616e.png)  
 
-
-
 ## Implementatie
+Om de ILogger interface aan te kunnen moeten we via dependency injection.  
+```
+private readonly ILogger<WeatherForecastController> _logger;
+
+public WeatherForecastController(ILogger<WeatherForecastController> logger)
+{
+     _logger = logger;
+}
+```
 
 ## Workshop

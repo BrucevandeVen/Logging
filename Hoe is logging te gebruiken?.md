@@ -11,7 +11,7 @@ Ik heb als eerste weer gegrepen naar [Tim Corey's video](https://www.youtube.com
 De verschillende Log Levels geven aan hoe kritiek de toestand is of geven andere informatie weer.
 ![image](https://user-images.githubusercontent.com/58031089/120306557-42870e00-c2d2-11eb-8c45-487d23c1616e.png)  
 
-## Implementatie
+## Implementatie in .NET Core 5
 Om de ILogger interface aan te kunnen moeten we via dependency injection een private readonly maken:
 ```csharp
 private readonly ILogger<WeatherForecastController> _logger;
@@ -34,6 +34,9 @@ appsettings.json:
     }
   }
 }
-```
+```  
+De aangegeven Log Levels zijn de minimale logs die weergegeven worden, bijvoorbeeld; vanaf Warning worden Warning, Error en Critical gedisplayed en bij Trace worden alle logs gedisplayed. 
+
+
 
 ## Workshop

@@ -53,7 +53,7 @@ Alles wordt dus netjes gedisplayed. Het is ook mogelijk om variabelen te laten z
 
 Variabelen en Id's:  
 ```csharp
- var i = 10;
+var i = 10;
 var id = 14;
 _logger.LogWarning(id,"whoops server timed out.. {Servertime}ms", i);
 ```  

@@ -21,6 +21,19 @@ public WeatherForecastController(ILogger<WeatherForecastController> logger)
      _logger = logger;
 }
 ```  
-De Log Levels kunnen aangeroepen worden d.m.v. _logger methodes
+De Log Levels kunnen aangeroepen worden d.m.v. methodes binnen logger. De methodes zijn bij de Log Levels eerder in dit bestand te vinden.  
+Van te voren moet je er voor zorgen dat je in appsettings.json je controller of ander bestand binnen je project geconfigureerd hebt, anders zullen de logs zich niet laten zien.  
+appsettings.json:  
+```json
+{
+  "AllowedHosts": "*",
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning",
+      "LoggingDemoAPI.Controllers.WeatherForecastController": "Trace"
+    }
+  }
+}
+```
 
 ## Workshop

@@ -47,4 +47,15 @@ _logger.LogCritical("something was breached");
 _logger.LogWarning("alert something is probably not right");
 ```
 
+De output:  
+![image](https://user-images.githubusercontent.com/58031089/120362837-cf9a8900-c30b-11eb-8fe1-16a566e707cb.png)  
+Alles wordt dus netjes gedisplayed. Het is ook mogelijk om variabelen te laten zien, of een log ID mee te geven.
+
+Variabelen en Id's:  
+```csharp
+ var i = 10;
+var id = 14;
+_logger.LogWarning(id,"whoops server timed out.. {Servertime}ms", i);
+```
+
 ## Workshop

@@ -57,5 +57,8 @@ Variabelen en Id's:
 var id = 14;
 _logger.LogWarning(id,"whoops server timed out.. {Servertime}ms", i);
 ```
+D.m.v. {..} kunnen variabelen na de komma ingevoerd worden, de logId moet voor de message gegeven worden.  
+![image](https://user-images.githubusercontent.com/58031089/120365190-6b2cf900-c30e-11eb-8df3-54c9cd9d8e49.png)
+
 
 ## Workshop

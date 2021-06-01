@@ -77,6 +77,6 @@ Voorbeeld:
                     logging.AddDebug(); // Gebruik Debugger voor logging
                 })
 ```  
-Als je geen console of debugger wil gebruiken voor logging kun je deze simpelweg verwijderen of uit commenten.
+Als je geen console of debugger wil gebruiken voor logging kun je deze simpelweg verwijderen of uit commenten. Let op dat context.Configuration.GetSection() dezelfde naam krijgt gegeven als in je appsettings.json file (in mijn geval "Logging").
 
 ## Workshop

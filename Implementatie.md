@@ -2,12 +2,16 @@
 
 ## Table Of Contents
 *Introductie*  
+  
 *Library*  
 - Log Levels
-
+  
 *Implementatie in .NET Core 5*  
 - Log parameters (variabelen & Id's)  
-- Debugger en Console 
+- Debugger en Console  
+  
+*Errorhandling*
+
 
 ## Introductie
 Ik heb een [simpele API](https://github.com/BrucevandeVen/Logging/tree/main/LoggingDemoAPI/LoggingDemoAPI) gemaakt waar ik logging op heb toegepast. hier worden alle onderstaande voorbeelden kort laten zien in de praktijk.

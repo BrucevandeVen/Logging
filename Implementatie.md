@@ -70,6 +70,7 @@ var i = 10;
 var id = 14;
 _logger.LogWarning(id,"whoops server timed out.. {Servertime}ms", i);
 ```  
+Een vaakgebruikte functie, is het gebruiken van DateTime.Now in de variabelen, om een tijdsperceptie te creëren.
 
 De output:  
 ![image](https://user-images.githubusercontent.com/58031089/120365297-8c8de500-c30e-11eb-81d1-4b1381129221.png)  

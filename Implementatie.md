@@ -1,10 +1,10 @@
 # Hoe is logging te gebruiken?
 
 ## Table Of Contents
-Library  
+*Library*  
 - Log Levels
 
-Implementatie in .NET Core 5  
+*Implementatie in .NET Core 5*  
 - Log parameters (variabelen & Id's)  
 - Debugger en Console 
 

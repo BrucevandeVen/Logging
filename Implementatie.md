@@ -91,4 +91,8 @@ Voorbeeld:
                     logging.AddDebug(); // Gebruik Debugger voor logging
                 })
 ```  
-Als je geen console of debugger wil gebruiken voor logging kun je deze simpelweg verwijderen of uit commenten. Let op dat context.Configuration.GetSection() dezelfde naam krijgt gegeven als in je appsettings.json file (in mijn geval "Logging").
+Als je geen console of debugger wil gebruiken voor logging kun je deze simpelweg verwijderen of uit commenten. Let op dat context.Configuration.GetSection() dezelfde naam krijgt gegeven als in je appsettings.json file (in mijn geval "Logging").  
+
+## Errorhandling en Debuggen 
+Logging maakt het heel gemakkelijk om errors op te sporen, voor meer kijk mijn stukje over [Het doel van Logging](https://github.com/BrucevandeVen/Logging/blob/main/Logging_Concreet.md).  
+

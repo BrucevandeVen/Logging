@@ -1,7 +1,7 @@
 # Hoe is logging te gebruiken?
 
 ## Table Of Contents
-*Introductie*
+*Introductie*  
 *Library*  
 - Log Levels
 

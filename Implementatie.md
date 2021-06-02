@@ -48,6 +48,8 @@ _logger.LogWarning("alert something is probably not right");
 
 De output:  
 ![image](https://user-images.githubusercontent.com/58031089/120362837-cf9a8900-c30b-11eb-8fe1-16a566e707cb.png)  
+
+### Log parameters (variabelen & Id's)  
 Alles wordt dus netjes gedisplayed. Het is ook mogelijk om variabelen te laten zien, of een log ID mee te geven.
 
 Variabelen en Id's:  
@@ -63,7 +65,8 @@ De output:
 D.m.v. {..} kunnen variabelen na de komma ingevoerd worden, de logId moet voor de message gegeven worden.  
 ![image](https://user-images.githubusercontent.com/58031089/120365190-6b2cf900-c30e-11eb-8df3-54c9cd9d8e49.png)  
 
-De Debugger en console kunnen beide gebruikt worden om log informatie te laten zien. De default zet alles open en laat het op beide plekken zien, als je het anders wilt zul je logger anders moeten configureren in de Program.cs file. We gaan de configureLogging methode gebruiken om de debugger aan of uit te zetten.  
+### Debugger en Console  
+De debugger en console kunnen beide gebruikt worden om log informatie te laten zien. De default zet alles open en laat het op beide plekken zien, als je het anders wilt zul je logger anders moeten configureren in de Program.cs file. We gaan de configureLogging methode gebruiken om de debugger aan of uit te zetten.  
 Voorbeeld:  
 ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>

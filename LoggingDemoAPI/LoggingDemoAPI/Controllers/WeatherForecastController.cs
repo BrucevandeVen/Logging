@@ -16,11 +16,13 @@ namespace LoggingDemoAPI.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        //private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly ILogger _logger;
+
+        public WeatherForecastController(ILoggerFactory factory)
         {
-            _logger = logger;
+            _logger = factory.CreateLogger("WeatherForecast");
         }
 
         [HttpGet]
@@ -36,6 +38,15 @@ namespace LoggingDemoAPI.Controllers
             var i = 10;
             var id = 14;
             _logger.LogWarning(id,"whoops server timed out.. {Servertime}ms", i);
+
+            try
+            {
+                throw new Exception("ERROR ERROR ERROR");
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "{time} There was an exception", DateTime.UtcNow);
+            }
             
 
             var rng = new Random();

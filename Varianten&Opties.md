@@ -44,7 +44,7 @@ Serilog is een van de eerste opties die ik heb leren kennen via de eerder benoem
     }
 ```  
 Op deze plek is het mogelijk alles te configureren, maar mij leek het verstandiger om dat in appsettings.json te doen zodat het niet hard-coded is.  
-Onderweg moet je 2 NuGetPackages installeren:
+Onderweg moet je 3 NuGetPackages installeren:
 - Serilog (2.10.0)
 - Serilog.Settings.Configuration (3.1.0)  
 - Serilog.AspNetCore (4.1.0)  

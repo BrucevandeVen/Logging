@@ -10,6 +10,7 @@
 - appsettings.json
 - Log parameters (variabelen & Id's)  
 - Debugger en Console  
+- Categoriëen  
   
 *Errorhandling*
 

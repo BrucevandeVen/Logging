@@ -7,6 +7,7 @@
 - Log Levels
   
 *Implementatie in .NET Core 5*  
+- appsettings.json
 - Log parameters (variabelen & Id's)  
 - Debugger en Console  
   
@@ -33,22 +34,7 @@ public WeatherForecastController(ILogger<WeatherForecastController> logger)
 }
 ```  
 De Log Levels kunnen aangeroepen worden d.m.v. methodes binnen logger. De methodes zijn bij de Log Levels eerder in dit bestand te vinden.  
-Van te voren moet je er voor zorgen dat je in appsettings.json je controller of ander bestand binnen je project geconfigureerd hebt, anders zullen de logs zich niet laten zien. Let op, het is mogelijk dat er een appsettings.developement.json is aangemaakt (automatisch), deze kan je verwijderen of invullen. De appsettings.developement.json file is dominant over de appsettings.json files, dus je zult hier je aanpassingen in moeten verrichten wil je resultaat zien. (voor grotere applicaties is aan te raden dit gescheiden te houden).  
 
-appsettings.json:  
-```json
-{
-  "AllowedHosts": "*",
-  "Logging": {
-    "LogLevel": {
-      "Default": "Warning",
-      "LoggingDemoAPI.Controllers.WeatherForecastController": "Trace"
-    }
-  }
-}
-```  
-De aangegeven Log Levels zijn de minimale logs die weergegeven worden, bijvoorbeeld; vanaf Warning worden Warning, Error en Critical gedisplayed en bij Trace worden alle logs gedisplayed.  
-Om alle Log Levels uit te proberen heb ik LoggingDemoAPI.Controllers.WeatherForecastController veranderd naar Trace.  
 Mijn test logs:  
 ```csharp
 _logger.LogInformation("some info");
@@ -79,6 +65,25 @@ De output:
 D.m.v. {..} kunnen variabelen na de komma ingevoerd worden, de logId moet voor de message gegeven worden.  
 ![image](https://user-images.githubusercontent.com/58031089/120365190-6b2cf900-c30e-11eb-8df3-54c9cd9d8e49.png)  
 
+### appsettings.json
+Van te voren moet je er voor zorgen dat je in appsettings.json je controller of ander bestand binnen je project geconfigureerd hebt, anders zullen de logs zich niet laten zien. Let op, het is mogelijk dat er een appsettings.developement.json is aangemaakt (automatisch), deze kan je verwijderen of invullen. De appsettings.developement.json file is dominant over de appsettings.json files, dus je zult hier je aanpassingen in moeten verrichten wil je resultaat zien. (voor grotere applicaties is aan te raden dit gescheiden te houden).  
+
+appsettings.json:  
+```json
+{
+  "AllowedHosts": "*",
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning",
+      "LoggingDemoAPI.Controllers.WeatherForecastController": "Trace"
+    }
+  }
+}
+```  
+Zelf heb je waarschijnlijk nog niet je eigen API controller hier bij staan, deze zul je zelf moeten toevoegen. Normaal staan hier ook Microsoft en Microsoft.Hosting.Lifetime bij, deze zie je altijd bij het opstarten van de applicatie (mits je deze niet verwijderd heb net als hierboven). 
+De aangegeven Log Levels zijn de minimale logs die weergegeven worden, bijvoorbeeld; vanaf Warning worden Warning, Error en Critical gedisplayed en bij Trace worden alle logs gedisplayed. Om alle Log Levels uit te proberen heb ik LoggingDemoAPI.Controllers.WeatherForecastController veranderd naar Trace. Het is dus mogelijk om per klasse of service een ander LogLevel minimum in te stellen, dit kan handig zijn bij grotere projecten. 
+Trace moet je zo min mogelijk gebruiken (behalve voor eigen gemaakte klassen/services), omdat deze heel veel weergeeft als je Micrsosoft toestemming geeft Trace te loggen. 
+
 ### Debugger en Console  
 De debugger en console kunnen beide gebruikt worden om log informatie te laten zien. De default zet alles open en laat het op beide plekken zien, als je het anders wilt zul je logger anders moeten configureren in de Program.cs file. We gaan de configureLogging methode gebruiken om de debugger aan of uit te zetten.  
 Voorbeeld:  
@@ -94,6 +99,36 @@ Voorbeeld:
                 })
 ```  
 Als je geen console of debugger wil gebruiken voor logging kun je deze simpelweg verwijderen of uit commenten. Let op dat context.Configuration.GetSection() dezelfde naam krijgt gegeven als in je appsettings.json file (in mijn geval "Logging").  
+In appsettings.json is het mogelijk om te specificeren waar je welke logs wil laten zien (debugger of Console), dat doe je door de Console en Debug default (of andere klassen/services) te specificeren:  
+```json
+{
+  "AllowedHosts": "*",
+  "Logging": {
+    "Console": {
+      "LogLevel": {
+        "Default": "Critical"
+      }
+    },
+    "Debug": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning",
+      "LoggingDemoAPI.Controllers.WeatherForecastController": "Trace"
+    }
+  }
+}
+```  
+
+De output van de Console (voorbeeld):  
+![image](https://user-images.githubusercontent.com/58031089/120620661-7b072300-c45d-11eb-801b-aa954ba9f7e2.png)  
+Zoals je ziet zijn alleen de Critical logs zichtbaar, zonder dat ik de code heb veranderd.
+
+De output van de Debugger (voorbeeld):
+![image](https://user-images.githubusercontent.com/58031089/120620902-b6a1ed00-c45d-11eb-8c51-73002572c636.png)  
+Nu zijn er er veel meer logs te zien.  
 
 ## Errorhandling en Debuggen 
 Logging maakt het heel gemakkelijk om errors op te sporen, voor meer kijk mijn stukje over [Het doel van Logging](https://github.com/BrucevandeVen/Logging/blob/main/Logging_Concreet.md).  
@@ -111,6 +146,7 @@ Try & Catch:
             }
 ```  
 Er wordt een exception gecreëerd en deze wordt gelogt.  
+
 De output:  
 ![image](https://user-images.githubusercontent.com/58031089/120617922-daafff00-c45a-11eb-9af6-3c18903f22b9.png)
 

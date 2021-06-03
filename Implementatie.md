@@ -82,7 +82,7 @@ appsettings.json:
 ```  
 Zelf heb je waarschijnlijk nog niet je eigen API controller hier bij staan, deze zul je zelf moeten toevoegen. Normaal staan hier ook Microsoft en Microsoft.Hosting.Lifetime bij, deze zie je altijd bij het opstarten van de applicatie (mits je deze niet verwijderd heb net als hierboven). 
 De aangegeven Log Levels zijn de minimale logs die weergegeven worden, bijvoorbeeld; vanaf Warning worden Warning, Error en Critical gedisplayed en bij Trace worden alle logs gedisplayed. Om alle Log Levels uit te proberen heb ik LoggingDemoAPI.Controllers.WeatherForecastController veranderd naar Trace. Het is dus mogelijk om per klasse of service een ander LogLevel minimum in te stellen, dit kan handig zijn bij grotere projecten. 
-Trace moet je zo min mogelijk gebruiken (behalve voor eigen gemaakte klassen/services), omdat deze heel veel weergeeft als je Micrsosoft toestemming geeft Trace te loggen. 
+Trace moet je zo min mogelijk gebruiken (behalve voor eigen gemaakte klassen/services), omdat deze heel veel weergeeft als je Micrsosoft toestemming geeft Trace te loggen.  
 
 ### Debugger en Console  
 De debugger en console kunnen beide gebruikt worden om log informatie te laten zien. De default zet alles open en laat het op beide plekken zien, als je het anders wilt zul je logger anders moeten configureren in de Program.cs file. We gaan de configureLogging methode gebruiken om de debugger aan of uit te zetten.  
@@ -148,7 +148,22 @@ Try & Catch:
 Er wordt een exception gecreëerd en deze wordt gelogt.  
 
 De output:  
-![image](https://user-images.githubusercontent.com/58031089/120617922-daafff00-c45a-11eb-9af6-3c18903f22b9.png)
+![image](https://user-images.githubusercontent.com/58031089/120617922-daafff00-c45a-11eb-9af6-3c18903f22b9.png)  
 
+## Categoriëen
+Het is mogelijk om categoriën te specificeren, dit kan helpen om de log duidelijker te maken. Hiervoor moeten we de loggerfactory gebruiken.  
 
+Voorbeeld:
+```csharp
+        private readonly ILogger _logger;
 
+        public WeatherForecastController(ILoggerFactory factory)
+        {
+            _logger = factory.CreateLogger("WeatherForecast");
+        }
+```  
+vergelijk dit met de constructor en private field bovenaan, dan zie je dat hier een factory gebruikt wordt. In de parameter van CreateLogger() je een naam geven aan je categorie, ik heb voor WeatherForecast gekozen omdat deze controller zo heet. Je kan er zoveel aanmaken als je wilt en de naam is ook naar eigen preferentie.  
+
+De output:  
+![image](https://user-images.githubusercontent.com/58031089/120623673-39c44280-c460-11eb-804e-8f520ce20dc3.png)  
+Er komt een categorie bij de log te staan.

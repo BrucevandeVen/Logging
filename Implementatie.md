@@ -96,4 +96,5 @@ Als je geen console of debugger wil gebruiken voor logging kun je deze simpelweg
 
 ## Errorhandling en Debuggen 
 Logging maakt het heel gemakkelijk om errors op te sporen, voor meer kijk mijn stukje over [Het doel van Logging](https://github.com/BrucevandeVen/Logging/blob/main/Logging_Concreet.md).  
+hiervoor wordt vooral Try & Catch gebruikt. Als de "Try" faalt, vangt de "Catch" het op met wat je daar ook geschreven hebt (veelal komt hier logging aan te pas).
 

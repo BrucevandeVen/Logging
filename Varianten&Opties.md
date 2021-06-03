@@ -102,6 +102,7 @@ Om Enrich te gebruiken heb je 3 NuGet Packages nodig:
 - Serilog.Enrichers.Envirement (2.1.3)
 - Serilog.Enrichers.Process (2.0.1)
 - Serilog.Enrichers.Thread (3.1.0)  
+Verder ga ik niet op Enrich in want dit is voor mij op dit moment niet heel relevant, wel wilde ik dit graag even benoemen.
 
 Maar wat krijgen we nu als output?
 

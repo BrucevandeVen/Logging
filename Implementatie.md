@@ -33,7 +33,8 @@ public WeatherForecastController(ILogger<WeatherForecastController> logger)
 }
 ```  
 De Log Levels kunnen aangeroepen worden d.m.v. methodes binnen logger. De methodes zijn bij de Log Levels eerder in dit bestand te vinden.  
-Van te voren moet je er voor zorgen dat je in appsettings.json je controller of ander bestand binnen je project geconfigureerd hebt, anders zullen de logs zich niet laten zien.  
+Van te voren moet je er voor zorgen dat je in appsettings.json je controller of ander bestand binnen je project geconfigureerd hebt, anders zullen de logs zich niet laten zien. Let op, het is mogelijk dat er een appsettings.developement.json is aangemaakt (automatisch), deze kan je verwijderen of invullen. De appsettings.developement.json file is dominant over de appsettings.json files, dus je zult hier je aanpassingen in moeten verrichten wil je resultaat zien. (voor grotere applicaties is aan te raden dit gescheiden te houden).  
+
 appsettings.json:  
 ```json
 {
@@ -96,5 +97,22 @@ Als je geen console of debugger wil gebruiken voor logging kun je deze simpelweg
 
 ## Errorhandling en Debuggen 
 Logging maakt het heel gemakkelijk om errors op te sporen, voor meer kijk mijn stukje over [Het doel van Logging](https://github.com/BrucevandeVen/Logging/blob/main/Logging_Concreet.md).  
-hiervoor wordt vooral Try & Catch gebruikt. Als de "Try" faalt, vangt de "Catch" het op met wat je daar ook geschreven hebt (veelal komt hier logging aan te pas).
+hiervoor wordt vooral Try & Catch gebruikt. Als de "Try" faalt, vangt de "Catch" het op met wat je daar ook geschreven hebt (veelal komt hier logging aan te pas).  
+
+Try & Catch:
+```csharp
+            try
+            {
+                throw new Exception("ERROR ERROR ERROR");
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "{time} There was an exception", DateTime.UtcNow);
+            }
+```  
+Er wordt een exception gecreëerd en deze wordt gelogt.  
+De output:  
+![image](https://user-images.githubusercontent.com/58031089/120617922-daafff00-c45a-11eb-9af6-3c18903f22b9.png)
+
+
 

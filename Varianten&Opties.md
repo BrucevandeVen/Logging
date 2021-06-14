@@ -111,4 +111,75 @@ De output:
 ![image](https://user-images.githubusercontent.com/58031089/120633308-49488900-c46a-11eb-955e-8d471c40e3c0.png)  
 Wat mij het eerste op valt is dat de tijd automatisch wordt weergegeven en er veel meer overzicht is t.o.v. originele logging. Alle variabelen worden paars gekleurd, zo springen ze er iets meer uit.  
 
-## NLog
+## NLog  
+Voor NLog heb ik een [tutorial van Shad Sluiter](https://www.youtube.com/watch?v=PnlxRmHg0lU&t=155s) gevolgd. Om NLog te gruiken hebben we een paar NuGet packages nodig:  
+- NLog 
+- NLog.Config (zorgt voor de .config file)
+- NLog.Schemas (zorgt voor intellisense in de .config file)  
+  
+De NLog.config file:
+```html
+<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.nlog-project.org/schemas/NLog.xsd NLog.xsd"
+      autoReload="true"
+      throwExceptions="false"
+      internalLogLevel="Off" internalLogFile="c:\temp\nlog-internal.log">
+
+  <!-- optional, add some variables
+  https://github.com/nlog/NLog/wiki/Configuration-file#variables
+  -->
+  <variable name="myvar" value="myvalue"/>
+
+  <!--
+  See https://github.com/nlog/nlog/wiki/Configuration-file
+  for information on customizing logging rules and outputs.
+   -->
+  <targets>
+    <targets>
+      <!-- write to file -->
+      <target name="f" xsi:type="File" fileName="${basedir}/logs/${shortdate}.log"
+              layout="${longdate} - ${message} -   
+        ${exception:format=StackTrace}${newline}" />
+    </targets>
+    <!--
+    add your targets here
+    See https://github.com/nlog/NLog/wiki/Targets for possible targets.
+    See https://github.com/nlog/NLog/wiki/Layout-Renderers for the possible layout renderers.
+    -->
+
+    <!--
+    Write events to a file with the date in the filename.
+    <target xsi:type="File" name="f" fileName="${basedir}/logs/${shortdate}.log"
+            layout="${longdate} ${uppercase:${level}} ${message}" />
+    -->
+  </targets>
+
+  <rules>
+    <!-- add your logging rules here -->
+
+    <!--
+    Write all events with minimal level of Debug (So Debug, Info, Warn, Error and Fatal, but not Trace)  to "f"
+        -->
+    <logger name="*" minlevel="Trace" writeTo="f" />
+
+  </rules>
+</nlog>
+```  
+Hier moet je een target kopiëren en plakken en uit commenten:  
+```html
+      <target name="f" xsi:type="File" fileName="${basedir}/logs/${shortdate}.log"
+              layout="${longdate} - ${message} -   
+        ${exception:format=StackTrace}${newline}" />
+```
+Er is heel veel mogelijk in de .config file, maar ik wil alleen de basis laten zien. Als deze target is geconfigureerd wordt er automatisch een huidige datum en tijd toegevoegd aan de log en ook het loglevel en de melding zelf wordt weergegeven.
+
+In de program.cs file moet deze regel worden toegevoegd aan de ConfigureLogging methode:
+```csharp
+Logging.AddNLog();
+```
+
+In de rules van de .config file kunnen loglevels en de locatie waar de logs naar worden weggeschreven geconfigureerd worden (wat bij eerdere loggers in de appsettings.json file werd gedaan.  
+Kortom, NLog is anders dan de concurrentie. NLog is naar mijn idee overzichtelijker, omdat het zijn eigen losse .config file heeft en niet in appsettings.json geconfigureerd hoeft te worden.
+

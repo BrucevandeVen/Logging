@@ -131,6 +131,24 @@ De output van de Debugger (voorbeeld):
 ![image](https://user-images.githubusercontent.com/58031089/120620902-b6a1ed00-c45d-11eb-8c51-73002572c636.png)  
 Nu zijn er er veel meer logs te zien.  
 
+## Categoriëen
+Het is mogelijk om categoriën te specificeren, dit kan helpen om de log duidelijker te maken. Hiervoor moeten we de loggerfactory gebruiken.  
+
+Voorbeeld:
+```csharp
+        private readonly ILogger _logger;
+
+        public WeatherForecastController(ILoggerFactory factory)
+        {
+            _logger = factory.CreateLogger("WeatherForecast");
+        }
+```  
+vergelijk dit met de constructor en private field bovenaan, dan zie je dat hier een factory gebruikt wordt. In de parameter van CreateLogger() je een naam geven aan je categorie, ik heb voor WeatherForecast gekozen omdat deze controller zo heet. Je kan er zoveel aanmaken als je wilt en de naam is ook naar eigen preferentie.  
+
+De output:  
+![image](https://user-images.githubusercontent.com/58031089/120623673-39c44280-c460-11eb-804e-8f520ce20dc3.png)  
+Er komt een categorie bij de log te staan.  
+
 ## Errorhandling en Debuggen 
 Logging maakt het heel gemakkelijk om errors op te sporen, voor meer kijk mijn stukje over [Het doel van Logging](https://github.com/BrucevandeVen/Logging/blob/main/Logging_Concreet.md).  
 hiervoor wordt vooral Try & Catch gebruikt. Als de "Try" faalt, vangt de "Catch" het op met wat je daar ook geschreven hebt (veelal komt hier logging aan te pas).  
@@ -151,20 +169,3 @@ Er wordt een exception gecreëerd en deze wordt gelogt.
 De output:  
 ![image](https://user-images.githubusercontent.com/58031089/120617922-daafff00-c45a-11eb-9af6-3c18903f22b9.png)  
 
-## Categoriëen
-Het is mogelijk om categoriën te specificeren, dit kan helpen om de log duidelijker te maken. Hiervoor moeten we de loggerfactory gebruiken.  
-
-Voorbeeld:
-```csharp
-        private readonly ILogger _logger;
-
-        public WeatherForecastController(ILoggerFactory factory)
-        {
-            _logger = factory.CreateLogger("WeatherForecast");
-        }
-```  
-vergelijk dit met de constructor en private field bovenaan, dan zie je dat hier een factory gebruikt wordt. In de parameter van CreateLogger() je een naam geven aan je categorie, ik heb voor WeatherForecast gekozen omdat deze controller zo heet. Je kan er zoveel aanmaken als je wilt en de naam is ook naar eigen preferentie.  
-
-De output:  
-![image](https://user-images.githubusercontent.com/58031089/120623673-39c44280-c460-11eb-804e-8f520ce20dc3.png)  
-Er komt een categorie bij de log te staan.
